@@ -1,0 +1,98 @@
+﻿<nav class="navbar navbar-expand-lg nave" aria-label="Tenth navbar example">
+	<div class="container-fluid">
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+
+		<div class="collapse navbar-collapse justify-content-md-center">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<NavLink class="nav-link logo-link">
+						<img src="https://storage.googleapis.com/cmsapi.sistema.cim.br/C-RS4ZQPMFT6PZI8/2022-12/FuNZSUyKXgYdXrZWqWZ0xhSR/logo.png?v=20221207114414" srcset="https://storage.googleapis.com/cmsapi.sistema.cim.br/C-RS4ZQPMFT6PZI8/2022-12/FuNZSUyKXgYdXrZWqWZ0xhSR/logo.png?v=20221207114414, https://storage.googleapis.com/cmsapi.sistema.cim.br/C-RS4ZQPMFT6PZI8/2022-12/FuNZSUyKXgYdXrZWqWZ0xhSR/logo2x.png?v=20221207114414 2x" alt="Racer" title="Racer" width="156" height="30">
+					</NavLink>
+
+				</li>
+
+
+				@if(admin == false)
+				{
+				<li class="nav-item">
+					<NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+						<span class="" aria-hidden="true"></span> Home
+					</NavLink>
+				</li>
+				<li class="nav-item">
+					<NavLink class="nav-link" href="motos">
+						<span class="" aria-hidden="true"></span> Motos
+					</NavLink>
+				</li>
+				<li class="nav-item">
+					<NavLink class="nav-link" href="tour">
+						<span class="" aria-hidden="true"></span> Tour
+					</NavLink>
+				</li>
+				}
+
+				@if (admin == true)
+				{
+					<li class="nav-item">
+						<NavLink class="nav-link" href="Gerenciar_Usuario">
+							<span class="" aria-hidden="true"></span> Gerenciar Usuario
+						</NavLink>
+					</li>
+
+					<li class="nav-item">
+						<NavLink class="nav-link" href="Cadastro_de_Veículos">
+							<span class="" aria-hidden="true"></span> Cadastro de Veículos
+						</NavLink>
+					</li>
+
+					<li class="nav-item">
+						<NavLink class="nav-link" href="Cadastro_de_Item_Adicional">
+							<span class="" aria-hidden="true"></span> Cadastro de Adicionais
+						</NavLink>
+					</li>
+
+					<li class="nav-item">
+						<NavLink class="nav-link" href="Cadastro_de_Tours">
+							<span class="" aria-hidden="true"></span> Cadastro de Tours
+						</NavLink>
+					</li>
+
+					<li class="nav-item">
+						<NavLink class="nav-link" href="Relatorios_Administrativos">
+							<span class="" aria-hidden="true"></span> Relatórios Administrativos
+						</NavLink>
+					</li>
+				}
+
+			</ul>
+		</div>
+
+		<div class="user-container">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<NavLink class="nav-link" href="user">
+						<img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+					</NavLink>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+</nav>
+
+
+
+@code {
+	private bool collapseNavMenu = true;
+	private string? NavBarCssClass => collapseNavMenu ? null : "show";
+	private string? NavButtonCssClass => collapseNavMenu ? "collapsed" : null;
+	private bool admin = false;
+
+	private void ToggleNavMenu()
+	{
+		collapseNavMenu = !collapseNavMenu;
+	}
+}

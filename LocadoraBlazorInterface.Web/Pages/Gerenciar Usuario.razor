@@ -1,0 +1,102 @@
+﻿@page "/Gerenciar_Usuario"
+@using LocadoraBlazorInterface.Web.Shared.Inputs
+@using LocadoraBlazorInterface.Web.Shared.Components
+
+
+<div class="container">
+	<div class="row">
+		<div class="mt-5">
+			<h3 class=" text-center">Gerenciar Usuário</h3>
+		</div>
+
+		<LabInputText Id="nome"
+					  Tip="Digite seu nome completo"
+					  PlaceHolder="Nome"
+					  Label="Nome"
+					  Size="formSize" />
+
+		<LabInputText Id="cpf"
+					  Tip="Digite seu CPF"
+					  PlaceHolder="CPF"
+					  Label="CPF"
+					  Size="formSize" />
+
+		<LabInputText Id="endereco"
+					  Tip="Digite seu endereço"
+					  PlaceHolder="Endereço"
+					  Label="Endereço"
+					  Size="formSize" />
+
+		<LabInputText Id="telefone"
+					  Tip="Digite seu telefone (opcional)"
+					  PlaceHolder="Telefone"
+					  Label="Telefone"
+					  Size="formSize" />
+
+		<LabInputText Id="celular"
+					  Tip="Digite seu celular"
+					  PlaceHolder="Celular"
+					  Label="Celular"
+					  Size="formSize" />
+
+		<LabInputText Id="habilitacao"
+					  Tip="Digite sua habilitação"
+					  PlaceHolder="Habilitação"
+					  Label="Habilitação"
+					  Size="formSize" />
+
+		<LabInputText Id="categoriaHabilitacao"
+					  Tip="Digite a categoria da sua habilitação"
+					  PlaceHolder="Categoria Habilitação"
+					  Label="Categoria Habilitação"
+					  Size="formSize" />
+
+		<LabInputText Id="nomeUsuario"
+					  Tip="Digite seu nome de usuário"
+					  PlaceHolder="Nome de usuário"
+					  Label="Nome de usuário"
+					  Size="formSize" />
+
+		<LabInputText Id="email"
+					  Tip="Digite seu email"
+					  PlaceHolder="Email"
+					  Label="Email"
+					  Size="formSize" />
+
+		<LabInputDate Id="dataNascimento"
+					  Tip="Digite sua data de nascimento"
+					  PlaceHolder="Data de nascimento"
+					  Label="Data de nascimento"
+					  Size="formSize" />
+
+		<LabInputText Id="senha"
+					  Tip="Digite sua senha"
+					  PlaceHolder="Senha"
+					  Label="Senha"
+					  Size="formSize" />
+
+		<LabInputText Id="senha2"
+					  Tip="Digite sua senha novamente"
+					  PlaceHolder="Senha"
+					  Label="Senha"
+					  Size="formSize" />
+	</div>
+	<button class="btn btn-outline-dark">Cadastrar</button>
+	<Tabela headerItem1="Nome" 
+	        headerItem2="CPF" 
+	        headerItem3="Tipo" 
+	        Items="users"/>
+
+</div>
+
+
+@code {
+	int formSize = 6;
+	List<Tabela.ItemAdicional> users = new List<Tabela.ItemAdicional>()
+	{
+		new Tabela.ItemAdicional() {Item1 = "John Doe", Item2 = "123.456.789-00", Item3 = "Cliente"},
+		new Tabela.ItemAdicional() {Item1 = "Jane Smith", Item2 = "987.654.321-00", Item3 = "Funcionário"},
+		new Tabela.ItemAdicional() {Item1 = "Bob Williams", Item2 = "111.222.333-44", Item3 = "Gerente"},
+        // Add more users as needed
+    };
+}

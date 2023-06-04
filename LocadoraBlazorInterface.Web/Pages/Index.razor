@@ -1,0 +1,84 @@
+﻿@page "/"
+
+@inherits LayoutComponentBase
+@inject NavigationManager MyNavigationManager
+@using LocadoraBlazorInterface.Web.Shared.Components;
+
+<Hero></Hero>
+<br>
+<h1 class="text-center display-5 fw-bold">Motos em destaque</h1>
+				@if (selectedMoto == null)
+				{
+
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<Card ImageUrl="https://www.suzuki.ca/wp-content/uploads/GSX-R1000RAM3_KGL_Right-1.jpg"
+						  ProductName="Suzuki GSX-R1000"
+						  ProductDescription="Uma das esportivas mais icônicas da Suzuki, com motor de 999 cc e 202 hp, suspensão eletrônica e eletrônica avançada para desempenho máximo."
+						  OnMotoSelected="SelectMoto">
+								</Card>
+							</div>
+							<div class="col">
+								<Card ImageUrl="https://www.quattroducati.com.br/wp-content/uploads/cor-monster-1200-s-vermelho-min.png"
+						  ProductName="Ducati Monster 1200 S"
+						  ProductDescription="A naked bike mais icônica da Ducati, com motor Testastretta de 1200 cc e 147 hp."
+						  OnMotoSelected="SelectMoto">
+								</Card>
+							</div>
+							<div class="col">
+								<Card ImageUrl="http://zambon.ai/aluno/puc3/assets/img/moto5.jpg"
+						  ProductName="Kawasaki Z900"
+						  ProductDescription="Uma naked bike esportiva com motor de 948 cc e 125 hp, suspensão ajustável e controle de tração."
+						  OnMotoSelected="SelectMoto">
+								</Card>
+							</div>
+						</div>
+					</div>
+				}
+				else
+				{
+					<div class="container">
+						<button class="btn btn-secondary mb-4" @onclick="DeselectMoto">Voltar</button>
+						<MotoDetails Moto="@selectedMoto"></MotoDetails>
+					</div>
+				}
+
+
+
+<HeroSideImgText Title="Serra da Canastra"
+				 Text="Uma área que oferece paisagens naturais impressionantes e trilhas desafiadoras para os amantes de motociclismo off-road."
+				 ImageUrl="https://nahoraapp.com.br/projetos/nahoraapp/uploads/empresa_capa/20210526110246.jpg"
+				 ImageAlignment="right"
+				 ButtonText="Ver mais" />
+
+<HeroSideImgText Title="Serra da Piedade"
+				 Text="Uma área que oferece paisagens naturais impressionantes e trilhas desafiadoras para os amantes de motociclismo off-road."
+				 ImageUrl="https://pousadacassinocaete.com.br/wp-content/uploads/2017/10/materia_serra-dapiedade.jpg"
+				 ImageAlignment="left"
+				 ButtonText="Ver mais" />
+
+
+@*<div class="b-example-divider"></div>*@
+
+<Foorter></Foorter>
+
+
+				
+								@code {
+	public bool ShowComponent { get; set; } = true;
+
+
+	private dynamic selectedMoto;
+
+	private void SelectMoto(dynamic moto)
+	{
+		selectedMoto = moto;
+	}
+
+	private void DeselectMoto()
+	{
+		selectedMoto = null;
+	}
+
+}

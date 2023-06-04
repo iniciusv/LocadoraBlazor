@@ -1,0 +1,11 @@
+﻿.acb {
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://cdn.shopify.com/s/files/1/0217/2514/collections/P90235443_highRes_the-new-bmw-r-ninet_1800x.jpg") center center no-repeat;
+	width: 100% !important;
+	background-size: cover !important;
+	height: 450px !important;
+}
+
+.buttonHero {
+	height: 80% !important;
+	align-self: start;
+}

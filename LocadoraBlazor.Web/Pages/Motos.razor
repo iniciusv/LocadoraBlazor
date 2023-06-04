@@ -1,0 +1,57 @@
+﻿@page "/motos"
+@using LocadoraBlazor.Web.Shared.Components
+@using LocadoraBlazor.Web.Shared
+
+<PageTitle>Motos</PageTitle>
+
+<h1>Motos</h1>
+
+@if (selectedMoto == null)
+{
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <Card ImageUrl="https://www.suzuki.ca/wp-content/uploads/GSX-R1000RAM3_KGL_Right-1.jpg"
+                      ProductName="Suzuki GSX-R1000"
+                      ProductDescription="Uma das esportivas mais icônicas da Suzuki, com motor de 999 cc e 202 hp, suspensão eletrônica e eletrônica avançada para desempenho máximo."
+                      OnMotoSelected="SelectMoto">
+                    </Card>
+                </div>
+                <div class="col">
+                    <Card ImageUrl="https://www.quattroducati.com.br/wp-content/uploads/cor-monster-1200-s-vermelho-min.png"
+                      ProductName="Ducati Monster 1200 S"
+                      ProductDescription="A naked bike mais icônica da Ducati, com motor Testastretta de 1200 cc e 147 hp."
+                      OnMotoSelected="SelectMoto">
+                    </Card>
+                </div>
+                <div class="col">
+                    <Card ImageUrl="https://kawasaki.m3parts.com.br/arquivos/1671715554_23zr900f_p_40sgy1dls3cg_a.jpg"
+                      ProductName="Kawasaki Z900"
+                      ProductDescription="Uma naked bike esportiva com motor de 948 cc e 125 hp, suspensão ajustável e controle de tração."
+                      OnMotoSelected="SelectMoto">
+                    </Card>
+                </div>
+            </div>
+        </div>
+}
+else
+{
+        <div class="container">
+            <button class="btn btn-secondary mb-4" @onclick="DeselectMoto">Voltar</button>
+            <MotoDetails Moto="@selectedMoto"></MotoDetails>
+        </div>
+}
+
+@code {
+    private dynamic selectedMoto;
+
+    private void SelectMoto(dynamic moto)
+    {
+        selectedMoto = moto;
+    }
+
+    private void DeselectMoto()
+    {
+        selectedMoto = null;
+    }
+}

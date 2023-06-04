@@ -1,0 +1,12 @@
+﻿body {
+.motos-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.moto {
+	width: 30%;
+	margin-bottom: 20px;
+}
+}

@@ -1,0 +1,73 @@
+﻿@page "/motos"
+@using LocadoraBlazor.Models.DTOs;
+@using LocadoraBlazorInterface.Web.Services
+@using LocadoraBlazorInterface.Web.Shared.Components
+@inject IVeiculoService veiculoService
+@inject BookingService bookingService
+@inject NavigationManager NavigationManager
+@inject VeiculoStateService veiculoState
+
+<PageTitle>Motos</PageTitle>
+
+@if (veiculos == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    if (selectedMoto == null)
+    {
+        <div class="mt-5">
+            <h3 class=" text-center">Motos</h3>
+        </div>
+        <div class="container">
+            <div class="row">
+                @foreach (var veiculo in veiculos)
+                {
+                    <div class="col">
+                        <Card ImageUrl="@veiculo.URLImage"
+                              ProductName="@veiculo.Modelo"
+                              ProductDescription="..."
+                              OnMotoSelected="SelectMoto">
+                        </Card>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="container">
+            <button class="btn btn-secondary mb-4" @onclick="DeselectMoto">Voltar</button>
+            <MotoDetails Moto="@selectedMoto"></MotoDetails>
+        </div>
+    }
+}
+
+@code {
+    private IEnumerable<VeiculoDTO> veiculos;
+    private VeiculoDTO selectedMoto;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await veiculoState.LoadVeiculos(veiculoService);
+        veiculos = veiculoState.Veiculos;
+
+        selectedMoto = veiculos.FirstOrDefault(m => m.Modelo == bookingService.SelectedMotoModel);
+    }
+
+    private void SelectMoto(dynamic moto)
+    {
+        string selectedModelo = moto.ProductName;
+        selectedMoto = veiculos.FirstOrDefault(m => m.Modelo == selectedModelo);
+        bookingService.SelectedMotoModel = selectedModelo;
+
+        NavigationManager.NavigateTo($"/ComponenteSelecionado/{selectedModelo}");
+    }
+
+    private void DeselectMoto()
+    {
+        selectedMoto = null;
+        bookingService.SelectedMotoModel = null;
+    }
+}

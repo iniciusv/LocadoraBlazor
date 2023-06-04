@@ -1,0 +1,87 @@
+﻿@using LocadoraBlazorInterface.Web.Shared.Inputs
+@using LocadoraBlazorInterface.Web.Shared.Components
+@using System.Collections.Generic
+
+<table class="table table-striped mt-3">
+	<thead>
+		<tr>
+			@if (!string.IsNullOrEmpty(headerItem1)) { <th>@headerItem1</th> }
+			@if (!string.IsNullOrEmpty(headerItem2)) { <th>@headerItem2</th> }
+			@if (!string.IsNullOrEmpty(headerItem3)) { <th>@headerItem3</th> }
+			@if (!string.IsNullOrEmpty(headerItem4)) { <th>@headerItem4</th> }
+			@if (!string.IsNullOrEmpty(headerItem5)) { <th>@headerItem5</th> }
+			@if (!string.IsNullOrEmpty(headerItem6)) { <th>@headerItem6</th> }
+			@if (!string.IsNullOrEmpty(headerItem7)) { <th>@headerItem7</th> }
+			@if (!string.IsNullOrEmpty(headerItem8)) { <th>@headerItem8</th> }
+			@if (!string.IsNullOrEmpty(headerItem9)) { <th>@headerItem9</th> }
+			@if (!string.IsNullOrEmpty(headerItem10)) { <th>@headerItem10</th> }
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Items)
+		{
+			<tr>
+				@if (!string.IsNullOrEmpty(headerItem1)) { <td>@item.Item1</td> }
+				@if (!string.IsNullOrEmpty(headerItem2)) { <td>@item.Item2</td> }
+				@if (!string.IsNullOrEmpty(headerItem3)) { <td>@item.Item3</td> }
+				@if (!string.IsNullOrEmpty(headerItem4)) { <td>@item.Item4</td> }
+				@if (!string.IsNullOrEmpty(headerItem5)) { <td>@item.Item5</td> }
+				@if (!string.IsNullOrEmpty(headerItem6)) { <td>@item.Item6</td> }
+				@if (!string.IsNullOrEmpty(headerItem7)) { <td>@item.Item7</td> }
+				@if (!string.IsNullOrEmpty(headerItem8)) { <td>@item.Item8</td> }
+				@if (!string.IsNullOrEmpty(headerItem9)) { <td>@item.Item9</td> }
+				@if (!string.IsNullOrEmpty(headerItem10)) { <td>@item.Item10</td> }
+				<td>
+					<button class="btn btn-outline-primary">Editar</button>
+				</td>
+				<td>
+					<button class="btn btn-outline-danger">Deletar</button>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+@code {
+	[Parameter]
+	public string headerItem1 { get; set; }
+	[Parameter]
+	public string headerItem2 { get; set; }
+	[Parameter]
+	public string headerItem3 { get; set; }
+	[Parameter]
+	public string headerItem4 { get; set; }
+	[Parameter]
+	public string headerItem5 { get; set; }
+	[Parameter]
+	public string headerItem6 { get; set; }
+	[Parameter]
+	public string headerItem7 { get; set; }
+	[Parameter]
+	public string headerItem8 { get; set; }
+	[Parameter]
+	public string headerItem9 { get; set; }
+	[Parameter]
+	public string headerItem10 { get; set; }
+
+	[Parameter]
+	public List<ItemAdicional> Items { get; set; }
+
+	public class ItemAdicional
+	{
+		public int IdItem { get; set; }
+		public string Item1 { get; set; }
+		public string Item2 { get; set; }
+		public string Item3 { get; set; }
+		public string Item4 { get; set; }
+		public string Item5 { get; set; }
+		public string Item6 { get; set; }
+		public string Item7 { get; set; }
+		public string Item8 { get; set; }
+		public string Item9 { get; set; }
+		public string Item10 { get; set; }
+	}
+}
+

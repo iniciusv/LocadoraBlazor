@@ -1,0 +1,82 @@
+﻿@page "/Cadastro_de_Veículos"
+@using LocadoraBlazorInterface.Web.Shared.Inputs
+@using LocadoraBlazorInterface.Web.Shared.Components
+<div class="container">
+	<div class="row">
+		<div class="mt-5">
+			<h3 class="text-center top-5">Cadastro de Veículos</h3>
+		</div>
+
+		<LabInputText Id="placa"
+					  Tip="Digite a placa do veículo"
+					  PlaceHolder="Placa"
+					  Label="Placa"
+					  Size="formSize" />
+
+		<LabInputText Id="modelo"
+					  Tip="Digite o modelo do veículo"
+					  PlaceHolder="Modelo"
+					  Label="Modelo"
+					  Size="formSize" />
+
+		<LabInputText Id="ano"
+					  Tip="Digite o ano do veículo"
+					  PlaceHolder="Ano"
+					  Label="Ano"
+					  Size="formSize" />
+
+		<LabInputText Id="cor"
+					  Tip="Digite a cor do veículo"
+					  PlaceHolder="Cor"
+					  Label="Cor"
+					  Size="formSize" />
+
+		<LabInputText Id="renavam"
+					  Tip="Digite o Renavam do veículo"
+					  PlaceHolder="Renavam"
+					  Label="Renavam"
+					  Size="formSize" />
+
+		<LabInputText Id="valorDiaria"
+					  Tip="Digite o valor da diária"
+					  PlaceHolder="Valor Diária"
+					  Label="Valor Diária"
+					  Size="formSize" />
+
+		<LabInputText Id="peso"
+					  Tip="Digite o peso do veículo"
+					  PlaceHolder="Peso"
+					  Label="Peso"
+					  Size="formSize" />
+
+		<LabInputText Id="categoryId"
+					  Tip="Digite a categoria do veículo"
+					  PlaceHolder="Categoria"
+					  Label="Categoria"
+					  Size="formSize" />
+
+		<LabInputText Id="urlImage"
+					  Tip="Digite a URL da imagem do veículo"
+					  PlaceHolder="URL da Imagem"
+					  Label="URL da Imagem"
+					  Size="formSize" />
+
+		<LabInputText Id="descricao"
+					  Tip="Digite a descrição do veículo"
+					  PlaceHolder="Descrição"
+					  Label="Descrição"
+					  Size="formSize" />
+	</div>
+	<button class="btn btn-outline-dark">Cadastrar</button>
+	<Tabela headerItem1="Placa" headerItem2="Modelo" headerItem3="Ano" headerItem4="Cor" Items="@veiculos" />
+</div>
+
+
+
+@code {
+	int formSize = 6;
+	List<Tabela.ItemAdicional> veiculos = new List<Tabela.ItemAdicional>
+	{
+		new Tabela.ItemAdicional { IdItem = 1, Item1 = "ABC-1234", Item2 = "Intruder", Item3 = "1970", Item4 = "Azul" },
+	};
+}

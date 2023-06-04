@@ -1,0 +1,75 @@
+﻿@page "/hero"
+@using LocadoraBlazor.Models.DTOs
+@using LocadoraBlazorInterface.Web.Services
+@using LocadoraBlazorInterface.Web.Shared.Components
+@using LocadoraBlazorInterface.Web.Shared
+@inject IVeiculoService veiculoService
+@inject BookingService bookingService
+@inject NavigationManager NavigationManager
+@inject VeiculoStateService veiculoState
+
+<div class="acb">
+    <div class="text-secondary px-4 py-5 text-center acb">
+        <div class="py-5">
+            <h1 class="display-5 fw-bold text-white">Uma nova experência em alugar motos!</h1>
+            <div class="col-lg-6 mx-auto">
+                <EditForm Model="@bookingForm" OnValidSubmit="OnSubmit">
+                    <div class="row mb-12 ">
+                        <div class="col-md-6 col-lg-6 ">
+                            <InputSelect class="form-select btn-lg" id="motorcycle-select" @bind-Value="bookingForm.SelectedMotoModel">
+                                <option selected>Escolha uma categoria</option>
+                                @if (veiculos != null)
+                                {
+                                    @foreach (var vehicle in veiculos)
+                                    {
+                                        <option value="@vehicle.Modelo">@vehicle.Modelo</option>
+                                    }
+                                }
+                            </InputSelect>
+
+                        </div>
+                        <div class="col-lg-2 ">
+                            <label class="text-light" for="data_entrada">Data de Entrada:</label>
+                            <InputDate class="form-control" id="pickupDate" @bind-Value="bookingForm.DataEntrada" />
+                        </div>
+                        <div class="col-lg-2">
+                            <label class="text-light" for="data_saida">Data de Saída:</label>
+                            <InputDate class="form-control" id="returnpDate" @bind-Value="bookingForm.DataSaida" />
+                        </div>
+                        <div class="align-items-end col-lg-2">
+                            <button type="submit" class="btn-light btn-lg col-lg-12 buttonHero">Locar</button>
+                        </div>
+                    </div>
+                </EditForm>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private IEnumerable<VeiculoDTO>? veiculos;
+    private BookingService bookingForm = new BookingService()
+    {
+            DataEntrada = DateTime.Now,
+            DataSaida = DateTime.Now
+    };
+
+    protected override async Task OnInitializedAsync()
+    {
+        var allVeiculos = await veiculoService.GetVeiculos();
+        veiculos = allVeiculos.Where(v => !string.IsNullOrWhiteSpace(v.Modelo)).ToList();
+    }
+
+    private async Task OnSubmit()
+    {
+        bookingService.SelectedMotoModel = veiculos.First(v => v.Modelo == bookingForm.SelectedMotoModel).ToString();
+        bookingService.DataEntrada = bookingForm.DataEntrada;
+        bookingService.DataSaida = bookingForm.DataSaida;
+
+        NavigationManager.NavigateTo("/ComponenteSelecionado");
+    }
+
+
+
+
+}

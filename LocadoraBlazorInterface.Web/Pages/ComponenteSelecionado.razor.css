@@ -1,0 +1,48 @@
+﻿body {
+	.container
+
+{
+	display: flex;
+	flex-direction: row;
+	height: 100vh;
+}
+
+.content {
+	flex: 2;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.forms {
+	flex: 1;
+	padding: 20px;
+}
+
+.image-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.image {
+	max-width: 100%;
+	height: auto;
+}
+
+.thumbnail {
+	max-width: 33%;
+	height: auto;
+	margin: 10px;
+	cursor: pointer;
+}
+
+.text {
+	margin-top: 20px;
+	font-size: 18px;
+	text-align: center;
+}
+}

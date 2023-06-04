@@ -1,0 +1,44 @@
+﻿@using Microsoft.AspNetCore.Components
+<div class="row">
+    <div class="col-md-8">
+        <img class="img-fluid" src="@Moto.ImageUrl" alt="Moto image">
+        <p class="mt-4">@Moto.ProductDescription</p>
+    </div>
+    <div class="col-md-4">
+        <h3>@Moto.ProductName</h3>
+        <p>Preço para 1-2 dias: R$100</p>
+        <p>Preço para 3-5 dias: R$90</p>
+        <p>Preço para mais de 7 dias: R$80</p>
+        <form>
+            <div class="form-group">
+                <label for="pickupDate">Data de retirada</label>
+                <input type="date" class="form-control" id="pickupDate">
+            </div>
+            <div class="form-group">
+                <label for="pickupLocation">Local de retirada</label>
+                <input type="text" class="form-control" id="pickupLocation">
+            </div>
+            <div class="form-group">
+                <label for="returnDate">Data de devolução</label>
+                <input type="date" class="form-control" id="returnDate">
+            </div>
+            <div class="form-group">
+                <label for="returnLocation">Local de devolução</label>
+                <input type="text" class="form-control" id="returnLocation">
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="helmet">
+                <label class="form-check-label" for="helmet">Capacete</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="topCase">
+                <label class="form-check-label" for="topCase">Baú</label>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Reservar</button>
+        </form>
+    </div>
+</div>
+
+@code {
+    [Parameter] public dynamic Moto { get; set; }
+}

@@ -1,0 +1,86 @@
+﻿@page "/tour"
+@using LocadoraBlazorInterface.Web.Pages
+@using LocadoraBlazorInterface.Web.Shared.Components
+
+
+<h3>Tour</h3>
+
+
+
+@if (selectedMoto == null)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <Card ImageUrl="https://www.civitatis.com/f/brasil/ouro-preto/tour-ouro-preto-mariana-r32.jpg"
+                  ProductName="Tour Mariana"
+                  ProductDescription="Mergulhe na riqueza histórica e nas paisagens deslumbrantes de Mariana em nosso tour exclusivo de motos de alto padrão! Aventure-se pelas sinuosas estradas e encante-se com a arquitetura colonial bem preservada nesta fascinante cidade mineira, considerada a primeira vila, cidade e capital do estado de Minas Gerais."
+                  OnMotoSelected="SelectMoto">
+                </Card>
+            </div>
+            <div class="col">
+                <Card ImageUrl="https://www.honda.com.br/racing/sites/racing/files/2021-08/HectorAssuncao_HondaRacingMotocross2021_CreditoIdarioCafe_MundoPress_36ICF_0481_1.jpg"
+                  ProductName="Trilha da serrinha: Aventura e Adrenalina"
+                  ProductDescription="Prepare-se para um dia repleto de aventura e adrenalina em nosso Desafio Motocross na Serra de Belo Horizonte! Aproveite a oportunidade de testar suas habilidades em uma pista de motocross desafiadora e bem projetada, localizada nas belas montanhas próximas à cidade de Belo Horizonte. Esta experiência é perfeita para pilotos de todos os níveis, desde iniciantes até profissionais."
+                  OnMotoSelected="SelectMoto">
+                </Card>
+            </div>
+            <div class="col">
+                <Card ImageUrl="https://kawasaki.m3parts.com.br/arquivos/1671715554_23zr900f_p_40sgy1dls3cg_a.jpg"
+                  ProductName="Kawasaki Z900"
+                  ProductDescription="Uma naked bike esportiva com motor de 948 cc e 125 hp, suspensão ajustável e controle de tração."
+                  OnMotoSelected="SelectMoto">
+                </Card>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <Card ImageUrl="https://www.civitatis.com/f/brasil/ouro-preto/tour-ouro-preto-mariana-r32.jpg"
+                  ProductName="Tour Mariana"
+                  ProductDescription="Mergulhe na riqueza histórica e nas paisagens deslumbrantes de Mariana em nosso tour exclusivo de motos de alto padrão! Aventure-se pelas sinuosas estradas e encante-se com a arquitetura colonial bem preservada nesta fascinante cidade mineira, considerada a primeira vila, cidade e capital do estado de Minas Gerais."
+                  OnMotoSelected="SelectMoto">
+                </Card>
+            </div>
+            <div class="col">
+                <Card ImageUrl="https://www.honda.com.br/racing/sites/racing/files/2021-08/HectorAssuncao_HondaRacingMotocross2021_CreditoIdarioCafe_MundoPress_36ICF_0481_1.jpg"
+                  ProductName="Trilha da serrinha: Aventura e Adrenalina"
+                  ProductDescription="Prepare-se para um dia repleto de aventura e adrenalina em nosso Desafio Motocross na Serra de Belo Horizonte! Aproveite a oportunidade de testar suas habilidades em uma pista de motocross desafiadora e bem projetada, localizada nas belas montanhas próximas à cidade de Belo Horizonte. Esta experiência é perfeita para pilotos de todos os níveis, desde iniciantes até profissionais."
+                  OnMotoSelected="SelectMoto">
+                </Card>
+            </div>
+            <div class="col">
+                <Card ImageUrl="https://kawasaki.m3parts.com.br/arquivos/1671715554_23zr900f_p_40sgy1dls3cg_a.jpg"
+                  ProductName="Kawasaki Z900"
+                  ProductDescription="Uma naked bike esportiva com motor de 948 cc e 125 hp, suspensão ajustável e controle de tração."
+                  OnMotoSelected="SelectMoto">
+                </Card>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="container">
+        <button class="btn btn-secondary mb-4" @onclick="DeselectMoto">Voltar</button>
+        <TourDetails Moto="@selectedMoto"></TourDetails>
+    </div>
+}
+
+
+
+@code {
+    private dynamic selectedMoto;
+
+    private void SelectMoto(dynamic moto)
+    {
+        selectedMoto = moto;
+    }
+
+    private void DeselectMoto()
+    {
+        selectedMoto = null;
+    }
+}

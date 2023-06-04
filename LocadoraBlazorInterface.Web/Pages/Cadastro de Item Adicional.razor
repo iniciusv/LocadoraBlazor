@@ -1,0 +1,87 @@
+﻿@page "/Cadastro_de_Item_Adicional"
+@using LocadoraBlazorInterface.Web.Shared.Inputs
+@using LocadoraBlazorInterface.Web.Shared.Components
+<div class="container">
+	<div class="row">
+		<div class="mt-5">
+			<h3 class="text-center">Cadastro de Item Adicional</h3>
+		</div>
+
+
+		<LabInputText Id="nome"
+					  Tip="Digite o nome do item"
+					  PlaceHolder="Nome"
+					  Label="Nome"
+					  Size="12" />
+
+		<LabInputText Id="descricao"
+					  Tip="Digite a descrição do item adicional"
+					  PlaceHolder="Descrição"
+					  Label="Descrição"
+					  Size="12" />
+
+		<LabInputDouble Id="valor"
+						Tip="Digite o valor do item adicional"
+						PlaceHolder="Valor"
+						Label="Valor"
+						Size="2" />
+
+		<LabInputInt Id="quantidade"
+					 Tip="Digite a quantidade do item adicional"
+					 PlaceHolder="Quantidade"
+					 Label="Quantidade"
+					 Size="2" />
+	</div>
+	<button class="btn btn-outline-dark">Cadastrar</button>
+	<table class="table table-striped mt-3">
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<br />
+				<th>Descrição</th>
+				<th>Valor</th>
+				<th>Quantidade</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in items)
+			{
+				<tr>
+					<td>@item.Nome</td>
+					<td>@item.Descricao</td>
+					<td>@item.Valor</td>
+					<td>@item.Quantidade</td>
+					<td>
+						<button class="btn btn-outline-primary">Editar</button>
+					</td>
+					<td>
+						<button class="btn btn-outline-danger">Deletar</button>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
+
+@code {
+	int formSize = 6;
+	// Supondo que você tenha uma classe ItemAdicional
+	// Substitua esta parte pelo seu método de obtenção de dados
+	List<ItemAdicional> items = new List<ItemAdicional>
+	 {
+	new ItemAdicional { IdItem = 1, Nome = "Item 1", Descricao = "Descrição do item 1", Valor = 10.5f, Quantidade = 2 },
+	new ItemAdicional { IdItem = 2, Nome = "Item 2", Descricao = "Descrição do item 2", Valor = 15.0f, Quantidade = 5 },
+	new ItemAdicional { IdItem = 3, Nome = "Item 3", Descricao = "Descrição do item 3", Valor = 20.0f, Quantidade = 1 },
+	};
+
+	public class ItemAdicional
+	{
+		public int IdItem { get; set; }
+		public string Nome { get; set; }
+		public string Descricao { get; set; }
+		public float Valor { get; set; }
+		public int Quantidade { get; set; }
+	}
+}

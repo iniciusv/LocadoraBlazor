@@ -1,0 +1,84 @@
+﻿@page "/motosSelecionada"
+
+
+	<title>Minha Página Blazor</title>
+
+	<div class="container">
+		<div class="content">
+			<h3>MotoSelecionada</h3>
+			<div class="image-container">
+			<img src="https://cdn.shopify.com/s/files/1/0217/2514/products/MotorbikeTrip_rental_moto_vignette_BMW-K1600-GTL_2023_740x.jpg?v=1673879344" class="image" />
+			</div>
+			<div class="text">
+				<p>Este é um texto de exemplo.</p>
+			</div>
+			<br />
+		</div>
+		<div class="forms">
+			<h2>Modelo da Moto Selecionado</h2>
+			<p>Este é um pequeno texto de exemplo.</p>
+			<form>
+				<label for="data">Data:</label>
+				<input type="date" id="data" name="data"><br><br>
+				<label for="hora">Hora:</label>
+				<input type="time" id="hora" name="hora"><br><br>
+				<label for="local-retirada">Local de Retirada:</label>
+				<input type="text" id="local-retirada" name="local-retirada"><br><br>
+				<label for="local-devolucao">Local de Devolução:</label>
+				<input type="text" id="local-devolucao" name="local-devolucao"><br><br>
+				<input type="submit" value="Enviar">
+			</form>
+		</div>
+	</div>
+
+
+	<style>
+		.container {
+			display: flex;
+			flex-direction: row;
+			height: 100vh;
+		}
+
+		.content {
+			flex: 2;
+			padding: 20px;
+			display: flex;
+			flex-direction: column;
+			justify-content: start;
+			align-items: first baseline;
+		}
+
+		.forms {
+			flex: 1;
+			padding: 20px;
+		}
+
+		.image-container {
+			display: flex;
+			flex-direction: row;
+			align-items: start;
+			justify-content: start;
+		}
+
+		.image {
+			max-width: 100%;
+			height: auto;
+		}
+
+		.thumbnail {
+			max-width: 33%;
+			height: auto;
+			margin: 10px;
+			cursor: pointer;
+		}
+
+		.text {
+			margin-top: 1px;
+			font-size: 18px;
+			text-align: center;
+		}
+	</style>
+
+@code {
+
+}
