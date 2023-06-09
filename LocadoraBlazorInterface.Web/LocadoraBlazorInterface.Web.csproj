@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <Folder Include="Classes\" />
-    <Folder Include="Shared\Inputs\" />
     <Folder Include="wwwroot\js\" />
   </ItemGroup>
 

@@ -1,14 +1,9 @@
 ﻿using LocadoraBlazorAPI.Entities.interfaces;
-using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
-using static System.Reflection.Metadata.BlobBuilder;
-using System.Net.NetworkInformation;
-using System.Runtime.ConstrainedExecution;
-using System.Threading;
 
-namespace LocadoraBlazorAPI.Entities;
-	public interface Usuario
+namespace LocadoraBlazorInterface.Web.Entities;
+public interface Usuario
 {
 	public string? Nome { get; set; }
 	public string? Email { get; set; }
@@ -19,19 +14,12 @@ namespace LocadoraBlazorAPI.Entities;
 public class Cliente : Usuario, IEntity
 {
 	public long ID { get; set; }
-	[MaxLength(100)]
 	public string Cpf { get; set; }
-	[MaxLength(100)]
 	public string Nome { get; set; }
-	[MaxLength(200)]
 	public string Endereco { get; set; }
-	[MaxLength(50)]
 	public string? Telefone { get; set; }
-	[MaxLength(50)]
 	public string Celular { get; set; }
-	[MaxLength(50)]
 	public string Habilitacao { get; set; }
-	[MaxLength(3)]
 	public string CategoriaHabilitacao { get; set; }
 	public Collection<Locacao> Locacoes { get; set; } = new Collection<Locacao>();
 	public string? Email { get; set; }
@@ -42,13 +30,9 @@ public class Cliente : Usuario, IEntity
 public class Funcionario : Usuario, IEntity
 {
 	public long ID { get; set; }
-	[MaxLength(100)]
 	public string Nome { get; set; }
-	[MaxLength(100)]
 	public string Funcao { get; set; }
-	[MaxLength(100)]
 	public string Endereco { get; set; }
-	[MaxLength(100)]
 	public float Salario { get; set; }
 	public int NumCarteiraTrabalho { get; set; }
 	public string? Email { get; set; }
@@ -128,5 +112,22 @@ public class Servico : IEntity
 	public string Descricao { get; set; }
 	public float Valor { get; set; }
 }
+
+public class UserInputModel
+{
+	public string Nome { get; set; }
+	public string Cpf { get; set; }
+	public string Endereco { get; set; }
+	public string Telefone { get; set; }
+	public string Celular { get; set; }
+	public string Habilitacao { get; set; }
+	public string CategoriaHabilitacao { get; set; }
+	public string NomeUsuario { get; set; }
+	public string Email { get; set; }
+	public DateTime DataNascimento { get; set; }
+	public string Senha { get; set; }
+	public string Senha2 { get; set; }
+}
+
 
 
